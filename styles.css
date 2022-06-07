@@ -26,7 +26,7 @@ body{
     color: #F0F8FF;
     margin-left: 20px;
 }
-.lista{
+.lista, .listaNova{
     display: block;
     margin-top: 10px;
     color: #F0F8FF;
