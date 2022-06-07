@@ -1,0 +1,82 @@
+body{
+    background-color: #0D1117;
+}
+.homePage{
+    position: relative;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    height: max-content;
+    background-color: #010409;
+    padding: 15px;
+    border-radius: 8px;
+    display: block;
+}
+.tituloPagina{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #F0F8FF;
+}
+.tituloLista{
+    margin-top: 10px;
+    color: #F0F8FF;
+    margin-left: 20px;
+}
+.lista{
+    display: block;
+    margin-top: 10px;
+    color: #F0F8FF;
+    margin-left: 20px;
+}
+li{
+    font-size: 18px;
+}
+.conteudo{
+    padding: 10px;
+    height: auto;
+    display: flex;
+}
+.conteudoLista{
+    display: block;
+}
+.conteudoFormulario{
+    position: absolute;
+    right: 15px;
+    top: 80px;
+}
+
+.inputLista{
+    position: static;
+    padding: 2px;
+    margin-right: 100px;
+    top: 10px;
+    height: 18px;
+    background-color: #010409;
+    color: #F0F8FF;
+    border: none;
+    border-bottom: 2px solid #F0F8FF;
+    margin-top: 10px;
+}
+.botaoSubmitLista{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #37803A;
+    color: #F0F8FF;
+    border: none;
+    cursor: pointer;
+    height: 24px;
+    border-radius: 5px;
+}
+.botaoSubmitLista:hover {
+    box-shadow: 0 6px 8px 0 #12151A, 0 9px 25px 0 #0B0E13;
+    background-color: #84CA87;
+}
+.botaoSubmitLista:active {
+    top: 12px;
+    background-color: #12151A;
+}
