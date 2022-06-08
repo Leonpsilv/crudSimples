@@ -80,3 +80,19 @@ li{
     top: 12px;
     background-color: #12151A;
 }
+.removedor{
+    background-color: #061837;
+    color: #F0F8FF;
+    margin-left: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.removedor:hover {
+    box-shadow: 0 6px 8px 0 #12151A, 0 9px 25px 0 #0B0E13;
+    background-color: #F56B6B;
+}
+.removedor:active {
+    background-color: #12151A;
+    margin-top: 2px;
+}
