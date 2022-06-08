@@ -1,27 +1,20 @@
 const listaDeItems = [];
 let idItemContador = 0;
-const conteudoLista = document.querySelector('.conteudoLista');
+const lista = document.querySelector('.lista');
 
-const criarElemento = (elementoItem) => {
-    conteudoLista.innerHTML = `
-        <h3 class="tituloLista">Sua lista :)</h3>
-        <ul class="listaNova">
-        </ul>
-    `;
-    const listaNova = document.querySelector('.listaNova');
-    listaNova.appendChild(elementoItem);
 
-}
-
-const criarArrayLista = (valor) => {
-    const idItem = idItemContador;
+const criarElemento = (valor) => {
     listaDeItems[idItemContador] = valor; // armazenando o valor digitado em uma array na posicao idItemContador
     const elementoItem = document.createElement('li');
     elementoItem.innerText = listaDeItems [idItemContador];
     elementoItem.setAttribute('id', idItemContador);
+    // após criar o elemento, vamos criar o botão de apagá-lo
 
-    idItemContador++;
-    criarElemento(elementoItem);
+    
+
+
+    lista.appendChild(elementoItem);
+ 
 }
 
 const adicionarElemento = (event) => {
@@ -30,8 +23,7 @@ const adicionarElemento = (event) => {
     //Captura o valor
     const valor = event.target.elements[0].value;
     event.target.elements[0].value = ""; // para limpar o campo
-
-    criarArrayLista(valor);
+    criarElemento(valor);
 }
 
     const elementoForm = document.querySelector("form");
