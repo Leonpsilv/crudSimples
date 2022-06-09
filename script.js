@@ -1,18 +1,21 @@
-const listaDeItems = [];
+const listaDeItens = [];
 let idItemContador = 0;
 const conteudoLista = document.querySelector('.conteudoLista');
 const lista = document.querySelector('.lista');
 
-const apagarElemento = (idItemContador) => {
-    console.log(listaDeItems);
+const apagarElemento = (idItem) => {
+    //const listaNova = document.querySelector('.listaNova');
+    listaDeItens.splice(idItem, 1); // para remover o item desejado
+
+    criarElemento();
 }
 
-const itemApagarElemento = (idItemContador) => {
+const itemApagarElemento = (idItem) => {
     const itemDelete = document.createElement('input');
     itemDelete.value = "X"; 
     itemDelete.setAttribute('type', 'button');
     itemDelete.setAttribute('class', 'removedor')
-    itemDelete.addEventListener('click', () => apagarElemento(idItemContador))
+    itemDelete.addEventListener('click', () => apagarElemento(idItem))
 
     return itemDelete;
 }
@@ -28,22 +31,29 @@ const limpaLista = () => {
 
 const criarElemento = (valor) => {
     limpaLista();
-    idItemContador = listaDeItems.length; // para impedir que o contador some valores antigos a cada vez que um item é adicionado
-    listaDeItems[idItemContador] = valor; // armazenando o valor digitado em uma array na posicao idItem
     
-    listaDeItems.forEach((elemento) => {
-        
+    idItemContador = listaDeItens.length; // para impedir que o contador some valores antigos a cada vez que um item é adicionado
+    if (valor) {
+        listaDeItens[idItemContador] = valor; // armazenando o valor digitado em uma array na posicao idItem
+    }
+    listaDeItens.forEach((elemento) => {
+
+        const idItem = listaDeItens.indexOf(elemento); 
+
         const elementoItem = document.createElement('li');
         elementoItem.innerText = elemento;
-        elementoItem.setAttribute('id', listaDeItems.length);
+        elementoItem.setAttribute('id', idItem); // para que cada id seja igual ao index do item em listaDeItems
+
             // após criar o elemento, vamos criar o botão de apagá-lo:
-        const apagarItem = itemApagarElemento(idItemContador);
+        
+        const apagarItem = itemApagarElemento(idItem);
         elementoItem.appendChild(apagarItem);
         const listaNova = document.querySelector('.listaNova');
         listaNova.appendChild(elementoItem);
         //console.log(idItemContador);
         idItemContador++;
     });
+    
 }
 
 const adicionarElemento = (event) => {
