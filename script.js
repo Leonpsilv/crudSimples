@@ -7,7 +7,7 @@ const apagarElemento = (idItem) => {
     //const listaNova = document.querySelector('.listaNova');
     listaDeItens.splice(idItem, 1); // para remover o item desejado
 
-    criarElemento();
+    criarLista();
 }
 
 const itemApagarElemento = (idItem) => {
@@ -20,21 +20,31 @@ const itemApagarElemento = (idItem) => {
     return itemDelete;
 }
 const limpaLista = () => {
+    if(listaDeItens.length === 0){
+        conteudoLista.innerHTML=`
+        <h3 class="tituloLista">Sua lista :)</h3>
+        <ul class="listaNova">
+            <p class="TextoListaVazia">A lista está vazia :( </p>
+        </ul>
+        `;
+    }
+}
+
+const criarLista = (valor) => {
     conteudoLista.innerHTML=`
     <h3 class="tituloLista">Sua lista :)</h3>
     <ul class="listaNova">
         
     </ul>
     `;
-    
-}
 
-const criarElemento = (valor) => {
-    limpaLista();
-    
     idItemContador = listaDeItens.length; // para impedir que o contador some valores antigos a cada vez que um item é adicionado
-    if (valor) {
+    if (valor){
         listaDeItens[idItemContador] = valor; // armazenando o valor digitado em uma array na posicao idItem
+    }
+    if(!listaDeItens){
+        limpaLista();
+        return;
     }
     listaDeItens.forEach((elemento) => {
 
@@ -53,7 +63,7 @@ const criarElemento = (valor) => {
         //console.log(idItemContador);
         idItemContador++;
     });
-    
+    limpaLista();
 }
 
 const adicionarElemento = (event) => {
@@ -63,7 +73,7 @@ const adicionarElemento = (event) => {
     const valor = event.target.elements[0].value;
     event.target.elements[0].value = ""; // para limpar o campo
 
-    criarElemento(valor);
+    criarLista(valor);
 }
 
     const elementoForm = document.querySelector("form");
