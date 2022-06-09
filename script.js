@@ -4,7 +4,6 @@ const conteudoLista = document.querySelector('.conteudoLista');
 const lista = document.querySelector('.lista');
 
 const apagarElemento = (idItemContador) => {
-    console.log('apagar :' + idItemContador);
     console.log(listaDeItems);
 }
 
@@ -26,27 +25,17 @@ const limpaLista = () => {
     `;
     
 }
-const criarElementoTeste = (valor) => {
-    limpaLista();
-    listaDeItems[idItemContador] = valor; // armazenando o valor digitado em uma array na posicao idItem
-    //let 
-    for(let i=0; i <= idItemContador; i++){
-        const elementoItem = document.createElement('li');
-        elementoItem.innerText = elemento;
-        elementoItem.setAttribute('id', listaDeItems.length);
-    }
-}
 
 const criarElemento = (valor) => {
     limpaLista();
-    //let idItem = idItemContador;
+    idItemContador = listaDeItems.length; // para impedir que o contador some valores antigos a cada vez que um item é adicionado
     listaDeItems[idItemContador] = valor; // armazenando o valor digitado em uma array na posicao idItem
     
     listaDeItems.forEach((elemento) => {
         
         const elementoItem = document.createElement('li');
         elementoItem.innerText = elemento;
-        elementoItem.setAttribute('id', idItemContador);
+        elementoItem.setAttribute('id', listaDeItems.length);
             // após criar o elemento, vamos criar o botão de apagá-lo:
         const apagarItem = itemApagarElemento(idItemContador);
         elementoItem.appendChild(apagarItem);
@@ -64,8 +53,7 @@ const adicionarElemento = (event) => {
     const valor = event.target.elements[0].value;
     event.target.elements[0].value = ""; // para limpar o campo
 
-    //criarElemento(valor);
-    criarElementoTeste(valor);
+    criarElemento(valor);
 }
 
     const elementoForm = document.querySelector("form");
